@@ -1,6 +1,10 @@
 services:
   - type: web
     name: mon-app-php
-    env: php
+    runtime: php
+    rootDirectory: .
     buildCommand: ""
-    startCommand: "php -S 0.0.0.0:8000"
+    startCommand: php -S 0.0.0.0:$PORT
+    envVars:
+      - key: PHP_VERSION
+        value: 8.2
